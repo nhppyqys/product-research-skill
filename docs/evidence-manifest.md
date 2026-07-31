@@ -1,5 +1,6 @@
 # Evidence manifest
 
+**English** · [简体中文](evidence-manifest.zh-CN.md) · [日本語](evidence-manifest.ja.md)
 Some completion requirements cannot be read off a finished report. How many paths you probed, how many case studies you read, whether you skimmed the vendor's video channel — **those describe the research, not the artifact.** Only the researcher can declare them.
 
 So they live in a sibling file, `<report>.evidence.json`, which **never ships with the report.** The checker picks it up automatically.

@@ -166,8 +166,8 @@ node scripts/check-report.mjs report.md
 
 | | |
 |---|---|
-| [仕組み](docs/how-it-works.md) | アーキテクチャ、ルーティング、契約、チェッカー |
-| [エビデンス・マニフェスト](docs/evidence-manifest.md) | 何を宣言するのか、なぜ別ファイルなのか |
+| [仕組み](docs/how-it-works.ja.md) | アーキテクチャ、ルーティング、契約、チェッカー |
+| [エビデンス・マニフェスト](docs/evidence-manifest.ja.md) | 何を宣言するのか、なぜ別ファイルなのか |
 | [ケースブック](skills/product-research/casebook.md) | 全 42 件 |
 | [契約](skills/product-research/contract.json) | 20 の完了基準 |
 | [サンプル](docs/examples/sample-report.md) | 最小のレポートとそのマニフェスト |
@@ -176,7 +176,7 @@ node scripts/check-report.mjs report.md
 
 メソッド自体は安定しています——6 つの形態の製品でエンドツーエンドに実行済みです。未完了の点が 2 つ：
 
-- **翻訳。**英語が作業版で、[`i18n/zh/`](skills/product-research/i18n/zh/) の中国語原稿と内容は揃っています。他言語の追加を歓迎します。
+- **メソッド本体は英語のみ。これは意図的です。**4 万トークン規模のメソッドを複数言語で同期し続けるのは無理があり、実際に一度ズレました。ドキュメントと README は 3 言語、メソッド自体は真実の源をひとつに保ちます。
 - **レポートのブランディングはオプトイン**（`assets/report-header.md` と `BRAND_HEADER` 変数）。デフォルトはブランド無しです。
 
 ## コントリビュート

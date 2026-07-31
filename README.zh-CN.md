@@ -166,8 +166,8 @@ node scripts/check-report.mjs 报告.md
 
 | | |
 |---|---|
-| [工作原理](docs/how-it-works.md) | 架构、路由、契约、检查器 |
-| [证据清单](docs/evidence-manifest.md) | 该声明什么，以及为什么它是独立文件 |
+| [工作原理](docs/how-it-works.zh-CN.md) | 架构、路由、契约、检查器 |
+| [证据清单](docs/evidence-manifest.zh-CN.md) | 该声明什么，以及为什么它是独立文件 |
 | [案例库](skills/product-research/casebook.md) | 全部 42 条 |
 | [契约](skills/product-research/contract.json) | 20 条完成标准 |
 | [示例](docs/examples/sample-report.md) | 一份最小报告和它的证据清单 |
@@ -176,7 +176,7 @@ node scripts/check-report.mjs 报告.md
 
 方法本身是稳的——已经在六种形态的产品上端到端跑通过。两件事明确未完成：
 
-- **翻译。**英文是工作版本，内容已与 [`i18n/zh/`](skills/product-research/i18n/zh/) 下的中文原稿对齐。欢迎补其他语言。
+- **方法本体只有英文，这是刻意的。**一份 4 万 token 的方法维护两个语言版本必然不同步——已经发生过一次。文档和 README 提供三语，方法本身只留一个真相源。
 - **报告品牌默认关闭**，在 `assets/report-header.md` 和 `BRAND_HEADER` 变量。开箱不带任何品牌。
 
 ## 参与

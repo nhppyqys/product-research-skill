@@ -1,5 +1,6 @@
 # How it works
 
+**English** · [简体中文](how-it-works.zh-CN.md) · [日本語](how-it-works.ja.md)
 Four parts, each doing exactly one job.
 
 ```

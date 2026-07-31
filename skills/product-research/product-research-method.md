@@ -416,6 +416,26 @@ From signup to first value, step by step. **Friction points must come from real 
 
 ---
 
+## Category definition: five slots
+
+**Fill these five before you say a single competitor's name.** Get them wrong and every peer you pick afterwards is wrong.
+
+| Slot | The question |
+|---|---|
+| **Who pays** | Not who uses it — who signs. Often different people |
+| **What job, on what object** | "Scheduling social posts" is a job; "a post" is the object |
+| **Input to output** | What goes in, what comes out finished |
+| **Where the workflow ends** | Does it stop at publishing, or continue into replies and analytics? |
+| **How it's delivered** | SaaS · API · self-hosted · app · marketplace |
+
+⚠️ **The narrowest purchasable market is the category**, defined by these five — not by an industry word or a technology word. When buyers are purchasing an outcome, labels like "AI agent platform", "SaaS" or "automation tool" describe architecture, not the competitive set.
+
+⚠️ **Field failure:** peers were chosen by category label, and the resulting table compared products that shared a buzzword and nothing else — different buyers, different jobs, incomparable prices (see C-16).
+
+**The five slots also produce the search terms for step 6:** describe the job with no brand name in it.
+
+---
+
 ## Claims vs. facts
 
 **Copy every claim off the homepage. Take each one back to the evidence and mark it holds / fails / unverifiable.** List conflicts explicitly — **a conflict you noticed and didn't surface is the worst outcome.**
@@ -423,6 +443,22 @@ From signup to first value, step by step. **Friction points must come from real 
 ⚠️ **Field case:** the homepage said credits never expire; another first-party page said they expire after six months. Both were output as fact, side by side, with no note that they contradict each other.
 
 ⚠️ **When the main domain blocks everything**, claims can still be taken from: the archived snapshot of the homepage · the app store description · the OG/meta description in the HTML head · the doc-site welcome page · search-result titles and descriptions the vendor wrote. **Only after all four fail do you write "all channels blocked" — and say so prominently in the report.**
+
+---
+
+## Activity, size and where the effort goes
+
+**All of this is free and comes off the domain itself:**
+
+- **Changelog cadence** — the strongest activity signal there is. Last entry last week or two years ago tells you everything
+- **What roles are open** — where the money is going. No careers page at all means a very small team
+- **Status page incident history** — the real reliability record, not the marketing claim
+- **Security / compliance pages** — SOC 2 or HIPAA present means they are selling to enterprises
+- **Documentation depth** — thin docs usually mean the claimed capabilities are on paper
+- **App stores** — version number, last update, rating, and **review count as a floor on the user base**
+- **Funding and team size** — rarely on the site; dig it out of press coverage, the careers page, and the legal entity named in the privacy policy
+
+**Read them together, not one at a time.** A weekly changelog with no open roles is a small team shipping hard. A stale changelog with many open roles is a company rebuilding. Neither reads correctly alone.
 
 ---
 
@@ -559,5 +595,16 @@ node scripts/check-report.mjs <report.md> [--manifest <evidence.json>]
 ```
 
 It runs the contract step by step and flags inline HTML, method-name leaks, internal jargon, work-log phrasing, example bleed, "to be tested" tables and unreplaced placeholders.
+
+### What the checker cannot see
+
+The contract catches what is countable. **These need a human pass:**
+
+1. Pick three numbers at random. For each, can you say what the exact words were and what the URL was? **If not, it was invented — delete it and rewrite**
+2. Does every section end in a judgement, or do some just stop after a table?
+3. Is the risk section empty? **An empty risk section is almost always "didn't think", not "there is none"**
+4. Does any section praise a capability that the evidence section left blank?
+5. Is anything in the report the target's own marketing language, repeated without a verdict?
+6. Would a reader who doesn't know this was machine-generated be able to tell?
 
 **Then read it once more and ask: does this read like it was written by a professional advisor? Is there anywhere it makes excuses for itself?**

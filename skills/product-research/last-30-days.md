@@ -33,6 +33,30 @@ triggers: []
 
 ⚠️ **Don't confuse the vendor's announcements with adoption.** A launch is a claim. Look for reaction to it before treating it as traction.
 
+## Where to look, in order
+
+**Free, first-party, and ordered by how much they reward the effort:**
+
+| Source | Path | What it settles |
+|---|---|---|
+| Changelog / release notes | `/changelog`, `/releases`, `/whats-new` | Cadence and the direction of investment |
+| Newsroom / press | `/news`, `/press`, `/blog` filtered by date | Funding, partnerships, launches |
+| Status page history | `status.` subdomain | Incidents, and whether they publish honestly |
+| App store version history | Store listing | Release cadence for mobile, plus the last update date |
+| Archived pricing page | Web archive snapshots | **Quiet price rises and free-tier cuts appear nowhere else** |
+| Official video channel | The title list | ⚠️ Twice this held capabilities absent from the site and docs (C-05) |
+| Community and reviews | Filtered to this window | Reaction attached to a specific change |
+
+⚠️ **Missing pages are also readable.** No changelog and no newsroom on an actively sold product means either they don't communicate, or there is nothing to communicate. **Both belong in the report.**
+
+## Separating announcement from adoption
+
+**A launch is a claim.** The vendor saying they shipped something is not evidence anyone uses it.
+
+Look for the gap: a feature announced loudly with no mention in reviews, no questions in the community, and no follow-up content **usually didn't land**. A feature announced quietly that keeps coming up in user posts is the opposite.
+
+⚠️ **The most useful pattern here is repetition.** When one feature gets several videos, several posts and a documentation rewrite in one month, that is where the company is actually betting — **regardless of what the homepage says the product is.**
+
 ## Closing
 
 Two sentences: **what changed, and what it implies about direction.** If nothing changed in 30 days, say that — for an actively-sold product, silence is itself a finding.

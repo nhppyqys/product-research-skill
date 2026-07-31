@@ -176,7 +176,7 @@ Running the method on an untested shape is fine. Pretending you're calibrated fo
 
 The method is stable — run end to end on products across six shapes. Two things are explicitly unfinished:
 
-- **Translation.** English is the working version; the Chinese originals under [`i18n/zh/`](skills/product-research/i18n/zh/) are still slightly more detailed in places.
+- **Translation.** English is the working version and is now at parity with the Chinese originals kept under [`i18n/zh/`](skills/product-research/i18n/zh/). Other languages welcome.
 - **Report branding is opt-in** via `assets/report-header.md` and the `BRAND_HEADER` variable. It ships unbranded.
 
 ## Contributing

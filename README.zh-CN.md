@@ -176,7 +176,7 @@ node scripts/check-report.mjs 报告.md
 
 方法本身是稳的——已经在六种形态的产品上端到端跑通过。两件事明确未完成：
 
-- **翻译。**英文是工作版本，[`i18n/zh/`](skills/product-research/i18n/zh/) 下的中文原稿在个别地方仍然更详细。
+- **翻译。**英文是工作版本，内容已与 [`i18n/zh/`](skills/product-research/i18n/zh/) 下的中文原稿对齐。欢迎补其他语言。
 - **报告品牌默认关闭**，在 `assets/report-header.md` 和 `BRAND_HEADER` 变量。开箱不带任何品牌。
 
 ## 参与

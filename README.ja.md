@@ -176,7 +176,7 @@ node scripts/check-report.mjs report.md
 
 メソッド自体は安定しています——6 つの形態の製品でエンドツーエンドに実行済みです。未完了の点が 2 つ：
 
-- **翻訳。**英語が作業版で、[`i18n/zh/`](skills/product-research/i18n/zh/) の中国語原稿は箇所によってまだ詳細です。
+- **翻訳。**英語が作業版で、[`i18n/zh/`](skills/product-research/i18n/zh/) の中国語原稿と内容は揃っています。他言語の追加を歓迎します。
 - **レポートのブランディングはオプトイン**（`assets/report-header.md` と `BRAND_HEADER` 変数）。デフォルトはブランド無しです。
 
 ## コントリビュート

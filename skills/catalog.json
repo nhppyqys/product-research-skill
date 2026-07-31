@@ -64,7 +64,7 @@
       "id": "research_viewpoint",
       "pack": "product-research",
       "entry": false,
-      "description": "Decides whose decision the report serves — buyer, founder, investor or product manager — and therefore which sections get written in full. Loaded by the entry method at step 0, before any evidence is collected.",
+      "description": "Decides whose decision the report serves — buyer, founder, investor or product manager — and therefore which sections get written in full and which are kept brief. Loaded by the entry method at step 0, before any evidence is collected.",
       "triggers": []
     }
   ]

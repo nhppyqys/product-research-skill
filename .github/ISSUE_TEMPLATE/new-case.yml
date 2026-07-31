@@ -1,0 +1,83 @@
+name: New field case
+description: You ran the method, something broke, and you want it recorded
+title: "[case] "
+labels: ["case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cases are the most valuable contribution to this project.
+
+        **All seven fields are required.** A case missing "Premise" or "Does not apply when"
+        will not be merged — not because of process, but because an incomplete case is
+        actively harmful: it hands over a specific conclusion without the conditions that
+        make it true, and that conclusion gets carried into unrelated work as fact.
+
+        That is not hypothetical. See [C-28](../../blob/main/skills/product-research/casebook.md).
+  - type: input
+    id: title
+    attributes:
+      label: One-line rule
+      description: The transferable lesson, with no product specifics in it.
+      placeholder: A 404 page can still carry the company's structured data
+    validations: { required: true }
+  - type: dropdown
+    id: shape
+    attributes:
+      label: Product shape
+      options:
+        - Self-serve SaaS
+        - Enterprise sales
+        - Consumer app
+        - Developer tool / API
+        - Open source / open core
+        - Marketplace / two-sided
+        - Early stage (no reviews, no case studies)
+        - Other
+    validations: { required: true }
+  - type: textarea
+    id: premise
+    attributes:
+      label: Premise
+      description: What kind of product, and what conditions held. This decides whether the case applies to someone else's target.
+    validations: { required: true }
+  - type: textarea
+    id: action
+    attributes:
+      label: Action
+      description: What you actually did.
+    validations: { required: true }
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: What happened. Include the wrong conclusion if you reached one — that is the useful part.
+    validations: { required: true }
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Mechanism
+      description: Why it happened, stated generally enough to apply elsewhere.
+    validations: { required: true }
+  - type: textarea
+    id: rule
+    attributes:
+      label: Rule
+      description: What should be done instead. No product names or specific numbers.
+    validations: { required: true }
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Does not apply when
+      description: |
+        Where following this rule makes things worse.
+
+        If you believe there is genuinely no boundary, write "n/a" and say why — but
+        think hard first. Most rules have one.
+    validations: { required: true }
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to check
+      description: A command or a quick test someone can run on a new product to see whether this applies. Write "n/a" if there isn't one.
+    validations: { required: true }

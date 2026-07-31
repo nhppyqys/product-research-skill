@@ -1,0 +1,35 @@
+name: Checker false positive
+description: The checker flagged something that was actually fine
+title: "[false positive] "
+labels: ["checker", "false-positive"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **False positives are treated as real bugs here.**
+
+        A checker that cries wolf gets ignored, and an ignored checker is worse than
+        no checker. One rule has already been downgraded from error to warning for
+        exactly this reason.
+  - type: input
+    id: rule
+    attributes:
+      label: Which rule fired
+      placeholder: worklog / example-bleed / too-few-images / step 4 Claims list …
+    validations: { required: true }
+  - type: textarea
+    id: snippet
+    attributes:
+      label: The text it flagged
+      render: markdown
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it was correct as written
+    validations: { required: true }
+  - type: textarea
+    id: env
+    attributes:
+      label: Report language and Node version
+      placeholder: English report, Node 20

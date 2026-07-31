@@ -1,6 +1,10 @@
 node_modules/
-*.evidence.json
+dist/
 .DS_Store
 .env
 .env.*
-dist/
+
+# Evidence manifests are working files and never ship with a report.
+# The example under docs/ is deliberately kept.
+*.evidence.json
+!docs/examples/*.evidence.json

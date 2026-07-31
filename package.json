@@ -1,0 +1,15 @@
+{
+  "name": "product-research-skill",
+  "version": "1.0.0",
+  "description": "A research method for AI agents that produces decision-grade product reports, with a completion contract enforced by code.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-skills.mjs",
+    "check:build": "node scripts/build-skills.mjs --check",
+    "check": "node scripts/check-report.mjs"
+  },
+  "keywords": ["ai-agent", "claude", "skill", "product-research", "competitive-analysis", "market-research", "llm"],
+  "repository": { "type": "git", "url": "https://github.com/nhppyqys/product-research-skill.git" },
+  "engines": { "node": ">=18" }
+}

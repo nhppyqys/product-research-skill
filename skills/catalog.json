@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "packs": [
+    {
+      "id": "product-research",
+      "entry": "product_research_method",
+      "members": [
+        "casebook",
+        "customer_proof",
+        "last_30_days",
+        "market_landscape",
+        "research_viewpoint"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "casebook",
+      "pack": "product-research",
+      "entry": false,
+      "description": "Field cases behind the product research method. Each records one real failure or discovery with its premise, action, result, mechanism, transferable rule, and the boundary where the rule stops applying. Load it to explain why a rule exists, or to judge whether a rule applies to the product in front of you.",
+      "triggers": []
+    },
+    {
+      "id": "customer_proof",
+      "pack": "product-research",
+      "entry": false,
+      "description": "Who buys it and what they say — ICP in three layers, named customers with published outcomes, and verbatim-quote discipline for reputation. Loaded by the entry method at step 7.",
+      "triggers": []
+    },
+    {
+      "id": "last_30_days",
+      "pack": "product-research",
+      "entry": false,
+      "description": "Recent activity — releases, pricing moves, funding, incidents and user reaction in the last 30 days, each with a date. Loaded by the entry method at step 8.",
+      "triggers": []
+    },
+    {
+      "id": "market_landscape",
+      "pack": "product-research",
+      "entry": false,
+      "description": "Landscape scan — assembling a real peer set, layering the category before comparing, measuring relative scale with free proxies, finding unfilled gaps, and ranking threats. Loaded by the entry method at step 6.",
+      "triggers": []
+    },
+    {
+      "id": "product_research_method",
+      "pack": "product-research",
+      "entry": true,
+      "description": "The method for researching a product or a competitive landscape, and the only entry point to this pack. Any request to analyse a product, compare competitors, judge whether a market is worth entering, or decide whether to buy starts here. It pulls in the viewpoint, landscape, voice-of-customer and recent-changes sub-methods itself, at the steps where they are needed — the caller never has to choose.",
+      "triggers": [
+        "analyze this product",
+        "product research",
+        "competitor analysis",
+        "competitive analysis",
+        "pricing",
+        "market landscape",
+        "is this worth building",
+        "should we buy",
+        "evaluate this product",
+        "teardown"
+      ]
+    },
+    {
+      "id": "research_viewpoint",
+      "pack": "product-research",
+      "entry": false,
+      "description": "Decides whose decision the report serves — buyer, founder, investor or product manager — and therefore which sections get written in full. Loaded by the entry method at step 0, before any evidence is collected.",
+      "triggers": []
+    }
+  ]
+}

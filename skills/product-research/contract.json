@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "note": "Single source of truth for completion standards. The method document explains criteria and reasoning only and must not restate these numbers — a duplicated copy always drifts. scripts/check-report.mjs reads this file. Shape-specific steps fire from an explicit manifest.shape, never guessed from the report text.",
+  "failureReasons": {
+    "blocked": "Every fallback channel was tried and failed. State which ones and what each returned.",
+    "absent": "The thing does not exist (no mobile app means no app store reviews).",
+    "incapable": "The environment genuinely cannot do it. You must have actually tried, and must quote the command and the error."
+  },
+  "steps": [
+    {
+      "id": "viewpoint",
+      "step": "0",
+      "name": "Viewpoint",
+      "requires": "State the primary viewpoint up front (buyer / founder / investor / PM)",
+      "check": {
+        "type": "regex",
+        "pattern": "主要读者|主视角|视角|[Pp]rimary reader|[Vv]iewpoint|[Ww]ritten for|[Pp]erspective"
+      }
+    },
+    {
+      "id": "path-space",
+      "step": "1",
+      "name": "Path space",
+      "requires": "Results from sitemap / llms.txt / robots.txt — before any path probing",
+      "check": {
+        "type": "manifest",
+        "field": "pathSpace"
+      }
+    },
+    {
+      "id": "site-inventory",
+      "step": "2",
+      "name": "Site inventory",
+      "requires": "apex + www + ≥12 paths + ≥5 subdomains, with 200 / 404 / blocked kept separate",
+      "check": {
+        "type": "manifest",
+        "field": "probedPaths",
+        "min": 12
+      }
+    },
+    {
+      "id": "supply-side",
+      "step": "2",
+      "name": "Supply side (marketplace only)",
+      "requires": "Listing velocity from the new-arrivals feed, plus category structure. Do not count sellers from the sitemap",
+      "check": {
+        "type": "manifest",
+        "field": "supplySide"
+      },
+      "appliesToShape": [
+        "平台",
+        "双边",
+        "marketplace",
+        "two-sided"
+      ],
+      "why": "Field test: zero sellers in the sitemap, but the RSS declared in robots.txt yields ~455 new listings/day (C-39)"
+    },
+    {
+      "id": "index-opened",
+      "step": "2.5",
+      "name": "Index pages opened",
+      "requires": "The body text of every pricing / quota / limit / rate-limit / error-code page in the index",
+      "check": {
+        "type": "manifest",
+        "field": "openedIndexPages"
+      }
+    },
+    {
+      "id": "primary-evidence",
+      "step": "3",
+      "name": "First-party evidence",
+      "requires": "≥3 verbatim quotes from first-party pages. The pricing page must be confirmed after rendering, with every interactive control operated",
+      "check": {
+        "type": "quotes",
+        "min": 3
+      }
+    },
+    {
+      "id": "license",
+      "step": "3",
+      "name": "License teardown (open source only)",
+      "requires": "Read the full LICENSE to locate the paywalled directories; check its commit history for the direction of change",
+      "check": {
+        "type": "manifest",
+        "field": "licenseAudit"
+      },
+      "appliesToShape": [
+        "开源",
+        "开放核心",
+        "open-core",
+        "open source"
+      ],
+      "why": "The exact paywall coordinates appear only in LICENSE; and license changes hide inside ordinary refactor commits (C-32, C-34)"
+    },
+    {
+      "id": "screenshots",
+      "step": "3.5",
+      "name": "Screenshots",
+      "requires": "≥3 images saved to disk and embedded in the report, each with the judgement it supports",
+      "check": {
+        "type": "images",
+        "min": 3
+      },
+      "fallback": "A login wall is not a reason — pull frames from the vendor's own video channel (see casebook C-05)"
+    },
+    {
+      "id": "case-studies",
+      "step": "3.8",
+      "name": "Customer case studies",
+      "requires": "If a case study page exists, read ≥3 including the most recent one, and record each one's year",
+      "check": {
+        "type": "manifest",
+        "field": "caseStudiesRead",
+        "min": 3
+      },
+      "skipWhen": "site has no case study page"
+    },
+    {
+      "id": "claims",
+      "step": "4",
+      "name": "Claims list",
+      "requires": "≥5 homepage claims, each marked holds / fails / unverifiable with its evidence",
+      "check": {
+        "type": "claimRows",
+        "min": 5
+      }
+    },
+    {
+      "id": "company",
+      "step": "5",
+      "name": "Company fundamentals",
+      "requires": "Seven fields with a value or an explicit \"searched, not found\"; ≥2 independent corroborating signals; headcount must carry a date",
+      "check": {
+        "type": "fields",
+        "min": 6,
+        "fields": [
+          [
+            "成立",
+            "创立",
+            "founded",
+            "Founded",
+            "establishment"
+          ],
+          [
+            "总部",
+            "办公室",
+            "注册地",
+            "全远程",
+            "HQ",
+            "headquarters",
+            "remote",
+            "office"
+          ],
+          [
+            "创始人",
+            "founder",
+            "Founder",
+            "co-founder"
+          ],
+          [
+            "融资",
+            "raised",
+            "bootstrap",
+            "未融资",
+            "funding",
+            "Funding"
+          ],
+          [
+            "员工",
+            "人数",
+            "全公司",
+            "团队规模",
+            "名册",
+            "employees",
+            "headcount",
+            "team size",
+            "staff"
+          ],
+          [
+            "收入",
+            "ARR",
+            "营收",
+            "年收入",
+            "revenue",
+            "Revenue"
+          ],
+          [
+            "估值",
+            "valuation",
+            "Valuation",
+            "未披露估值"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "peers",
+      "step": "6",
+      "name": "Landscape scan",
+      "requires": "Pricing page text from ≥3 competitors' own sites, normalised to one billing unit",
+      "check": {
+        "type": "manifest",
+        "field": "peerPricingPages",
+        "min": 3
+      }
+    },
+    {
+      "id": "layers",
+      "step": "6",
+      "name": "Layering",
+      "requires": "Layer before comparing: are these players doing the same job? Every layer needs an anchor inside the reliable range",
+      "check": {
+        "type": "regex",
+        "pattern": "分层|不止一层|[Ll]ayer"
+      },
+      "appliesTo": [
+        "创业者",
+        "投资人"
+      ]
+    },
+    {
+      "id": "scale",
+      "step": "6.5",
+      "name": "Scale and structure",
+      "requires": "Domain rank plus 30-day trend for every player; ≥2 proxy dimensions; state the measure and its distortion",
+      "check": {
+        "type": "regex",
+        "pattern": "Tranco|口径说明|domain rank|prominence rank|what (this|the) (measure|rank) means"
+      }
+    },
+    {
+      "id": "demand-side",
+      "step": "6.5",
+      "name": "Demand side (marketplace only)",
+      "requires": "State explicitly whether the demand side is measurable. Never pass total site traffic off as buyer volume",
+      "check": {
+        "type": "regex",
+        "pattern": "需求侧|买家规模|无法验证|不可测|demand side|buyer (volume|scale)|could not be verified|unmeasurable"
+      },
+      "appliesToShape": [
+        "平台",
+        "双边",
+        "marketplace",
+        "two-sided"
+      ],
+      "why": "Field test: total site rank mixes buyers, sellers and storefront-link traffic; it cannot be split (C-42)"
+    },
+    {
+      "id": "voice",
+      "step": "7",
+      "name": "Voice of customer",
+      "requires": "≥1 third-party review source with concrete content; verbatim quotes with source and date; positive / negative / suggestions all present; state the sampling rule",
+      "check": {
+        "type": "datedQuotes",
+        "min": 4
+      }
+    },
+    {
+      "id": "recent",
+      "step": "8",
+      "name": "Recent changes",
+      "requires": "Last 30 days: releases, pricing changes, funding, incidents, user reaction — each dated",
+      "check": {
+        "type": "regex",
+        "pattern": "近 ?30 ?天|最近.{0,4}(个月|周)|20\\d\\d-\\d\\d-\\d\\d|[Ll]ast 30 days|[Rr]ecent changes"
+      }
+    },
+    {
+      "id": "official-video",
+      "step": "8",
+      "name": "Official video channel",
+      "requires": "Skim the vendor's video channel title list; treat it as a changelog",
+      "check": {
+        "type": "manifest",
+        "field": "videoChannelChecked"
+      },
+      "why": "Field test, twice: a core integration absent from the site and the docs appeared only in an official video"
+    },
+    {
+      "id": "summary",
+      "step": "10",
+      "name": "Opening summary",
+      "requires": "A jargon-free summary: what it is, who buys it, how much it earns, where it sits, the opportunity and the risk",
+      "check": {
+        "type": "regex",
+        "pattern": "先读这段|一句话结论|摘要|[Rr]ead this first|TL;?DR|[Ss]ummary"
+      }
+    },
+    {
+      "id": "boundary",
+      "step": "10",
+      "name": "Boundaries",
+      "requires": "What was not obtained, and how that limits the conclusions. Not \"what I didn't do\"",
+      "check": {
+        "type": "regex",
+        "pattern": "本报告的边界|未取得|信息边界|[Bb]oundaries|[Nn]ot obtained|[Ww]hat (we|I) could ?n.t get"
+      }
+    }
+  ]
+}

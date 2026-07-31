@@ -1,0 +1,6 @@
+node_modules/
+*.evidence.json
+.DS_Store
+.env
+.env.*
+dist/

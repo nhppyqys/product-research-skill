@@ -35,29 +35,28 @@ Then a verdict written for *your* decision, and a boundaries section saying what
 ## What the output actually looks like
 
 <p align="center">
-  <img src="docs/images/report-sample.png" alt="The opening of a generated report: reader stated up front, a category table, and superscript citations on every claim" width="760">
+  <img src="docs/images/report-sample.png" alt="The opening of a generated report on Linear: the reader it is written for stated up front, then a category breakdown with a citation on every claim" width="760">
 </p>
 
-That is the top of a real report, unedited. Two things to notice: the reader it is written for is stated in the first line, and the small superscripts are live citations — every number traces back to the page it came from.
+That is the top of a real report on Linear, unedited — [read the whole thing](docs/examples/full-report.md). Two things to notice: the reader it was written for is named in the second section, and the small superscripts are citations, one per claim, each traceable to the page it came from.
 
-Measured across six evaluation rounds on five products (a login-only subdomain, a one-page landing site, a small AI tool, a mature SaaS, and an open-source product):
+That report runs 26,000 characters across 17 sections with 96 citations. Measured across seven evaluation rounds on five products — a login-only subdomain, a one-page landing site, a small AI tool, a mature SaaS, and an open-source product:
 
-| | Typical | Best round |
-|---|---|---|
-| Body length | 9,000–15,000 characters | 16,730 |
-| Citations | 2–6 per 1,000 characters | 6.5 |
-| Product screenshots, placed in context | 1–4 | 4 |
-| Sections | 12–17, from a fixed list | — |
-| Time per report | 5–10 minutes | — |
+| | Range across runs |
+|---|---|
+| Body length | 9,000–32,000 characters |
+| Citations | 2–6.5 per 1,000 characters |
+| Product screenshots, placed in context | 1–4 |
+| Sections | 17, from a fixed list, same order every time |
+| Time per report | 5–10 minutes |
 
-The full report behind that screenshot, and a shorter worked example, are in [`docs/examples/`](docs/examples/).
+**What it catches that a summary does not.** From real runs on real products:
 
-**What it catches that a summary does not.** From real runs:
+- A customer story headlined *"33% lower CPA"* whose body text never mentions CPA. Three more like it on the same site — a *"cut CAC by 30%"* headline with no CAC in the body, a click-through figure written as 47.56% in one paragraph and 47.86% in the next.
+- *"Production time cut from 4 months to 10 minutes — 12x faster."* Four months is not twelve times ten minutes. It is about seventeen thousand. The report did the arithmetic and said so.
+- A product researched from its login subdomain, where the operating company is named on no page the site serves — but every image on it is delivered from a domain belonging to a different company entirely.
+- A "direct competitors" table listing the product's own parent company and two news outlets that had written about it. Every row was correctly cited. The checker rejects that table before a reader sees it.
 
-- *"Ten years of global marketing experience"* — against a company founded in 2017. The report did the subtraction and marked the claim **overstated**.
-- A case study headlined *"cut CPA by 50%"* whose own body text never mentions CPA. Three more like it in the same case library.
-- A product researched from its login subdomain, where the company behind it is named on no page — but every image is served from a domain belonging to the parent, which had just filed for a Hong Kong IPO.
-- A "competitor table" listing the product's own parent company and two news outlets. The checker rejects that one before it reaches a reader.
 
 ## Who it's for
 

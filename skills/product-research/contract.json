@@ -1,6 +1,128 @@
 {
   "version": 1,
   "note": "Single source of truth for completion standards. The method document explains criteria and reasoning only and must not restate these numbers — a duplicated copy always drifts. scripts/check-report.mjs reads this file. Shape-specific steps fire from an explicit manifest.shape, never guessed from the report text.",
+  "reportOutlineNote": "The sections a finished report contains, in order. The steps below say what evidence to gather; this says what the reader receives. Headings are given in English because the method is English-only; render them in the language the report is written in. Without this list every run invents its own outline — measured across six runs on one product, reports came back with 11 to 17 sections under different names, and required sections such as customer voice and relative scale appeared in some and vanished from others. An agent may write these in one pass or one at a time; that is a runtime decision, and having the list is what makes writing them one at a time possible.",
+  "reportOutline": [
+    {
+      "id": "summary",
+      "heading": "Read this first",
+      "must": "What it is, who pays, what it costs, where it sits, the biggest opportunity and the biggest risk — in one paragraph a busy reader can stop after."
+    },
+    {
+      "id": "viewpoint",
+      "heading": "Primary viewpoint",
+      "must": "Whose decision this report serves (buyer / founder / investor / PM) and what changes because of that choice."
+    },
+    {
+      "id": "category",
+      "heading": "Category definition",
+      "must": "Who pays; what work it does and on what object; input to output; where the workflow ends; how it is delivered."
+    },
+    {
+      "id": "site-shape",
+      "heading": "Site inventory",
+      "must": "What the site's own index says: how many pages, in how many languages, of what kinds. Which standard paths exist, which returned 404, which were blocked. Counted, never estimated."
+    },
+    {
+      "id": "capabilities",
+      "heading": "Capabilities",
+      "must": "Each capability: what it manages, what it does to it, which plan it is in. Prose, not a bare table."
+    },
+    {
+      "id": "journey",
+      "heading": "Core user journey",
+      "must": "Signup to first value, step by step, and where the friction is."
+    },
+    {
+      "id": "pricing",
+      "heading": "Pricing teardown",
+      "must": "Every tier with its unit, what changes between tiers, and what is not published. An enterprise-sales product still needs this section — say how it is sold."
+    },
+    {
+      "id": "claims",
+      "heading": "Claims versus facts",
+      "must": "A table: each vendor claim, the evidence found, and a verdict. Verdicts other than 'unverifiable' require arithmetic or a source."
+    },
+    {
+      "id": "company",
+      "heading": "Company fundamentals",
+      "must": "Founded, HQ, founders, funding, headcount, revenue, valuation — each with its source or marked missing. Name the operating company when it differs from the product."
+    },
+    {
+      "id": "landscape",
+      "heading": "Competitive landscape",
+      "must": "Layered by what each player does, not by fame. Only products whose own site was opened may be called direct competitors; everything else is labelled unverified."
+    },
+    {
+      "id": "scale",
+      "heading": "Scale and relative position",
+      "must": "Domain rank and its 30-day direction for the product and its named peers, with the caveat that a rank is prominence and not traffic. Plus at least two other proxies."
+    },
+    {
+      "id": "voice",
+      "heading": "Voice of the customer",
+      "must": "Verbatim customer wording with source and date, positive and negative and suggestions, and the sampling rule. If every channel refused, say which and what was tried."
+    },
+    {
+      "id": "recent",
+      "heading": "Recent developments",
+      "must": "The last 30 days, dated: releases, pricing changes, funding, incidents. If the newest item is months old, say so rather than presenting it as recent."
+    },
+    {
+      "id": "risks",
+      "heading": "Risks",
+      "must": "What would have to be true for this to go wrong, ordered by how much it would cost the reader."
+    },
+    {
+      "id": "conclusion",
+      "heading": "Conclusions and recommendations",
+      "must": "Answers written for the viewpoint declared at the top. For a buyer: who should and should not choose this, and what to verify before signing."
+    },
+    {
+      "id": "boundaries",
+      "heading": "Boundaries of this report",
+      "must": "What was not obtained, which channels were tried, and how each gap limits the conclusions."
+    },
+    {
+      "id": "appendix",
+      "heading": "Appendix: evidence list",
+      "must": "Every source cited in the body, with its id and URL."
+    }
+  ],
+  "reportOutlineConditional": [
+    {
+      "id": "license",
+      "heading": "Licence and the open-source boundary",
+      "appliesToShape": [
+        "开源",
+        "open source",
+        "open-core"
+      ],
+      "must": "Which licence, what it covers, what the paid edition adds, and what self-hosting actually costs."
+    },
+    {
+      "id": "supply",
+      "heading": "Supply side",
+      "appliesToShape": [
+        "平台",
+        "双边",
+        "marketplace",
+        "two-sided"
+      ],
+      "must": "Listing velocity from the new-arrivals feed and the category structure. Never count sellers from the sitemap."
+    },
+    {
+      "id": "demand",
+      "heading": "Demand side",
+      "appliesToShape": [
+        "平台",
+        "双边",
+        "marketplace",
+        "two-sided"
+      ],
+      "must": "Where buyers come from and what they search for, measured rather than assumed."
+    }
+  ],
   "failureReasons": {
     "blocked": "Every fallback channel was tried and failed. State which ones and what each returned.",
     "absent": "The thing does not exist (no mobile app means no app store reviews).",

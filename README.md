@@ -4,13 +4,17 @@
 
 [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · MIT
 
+<p align="center">
+  <img src="docs/images/how-it-works.svg" alt="Gather 20 evidence steps, write 17 fixed sections, measure with a check that can fail — and go back when it does" width="880">
+</p>
+
 ---
 
 ## What this is
 
 A research method for AI agents, plus a checker that enforces it.
 
-You give an agent a URL. It works through a fixed 10-step sequence — inventory the site, read the pricing after rendering it, check every homepage claim against evidence, find the real competitors, pull verbatim user reviews with dates, look at what changed in the last 30 days — and writes a report that ends in a recommendation, not a summary.
+You give an agent a URL. It works through a fixed sequence — inventory the site before guessing at paths, read the pricing after rendering it, check every homepage claim against evidence, find the competitors whose own sites it actually opened, pull verbatim user reviews with dates, look at what changed in the last 30 days — and then writes the report into a fixed set of sections, in a fixed order, so two reports on two products can be read side by side.
 
 **It researches internet software products**: SaaS tools, mobile and web apps, developer tools and APIs, open-source projects, and marketplaces. Anything with a website, a pricing page, and users who complain in public.
 
@@ -27,6 +31,33 @@ A report that answers five questions, in this order:
 5. **What do users actually say?** Up to 10 verbatim quotes with source, date and identity — grouped by time, because sentiment drifts
 
 Then a verdict written for *your* decision, and a boundaries section saying what couldn't be obtained and how that weakens which conclusion.
+
+## What the output actually looks like
+
+<p align="center">
+  <img src="docs/images/report-sample.png" alt="The opening of a generated report: reader stated up front, a category table, and superscript citations on every claim" width="760">
+</p>
+
+That is the top of a real report, unedited. Two things to notice: the reader it is written for is stated in the first line, and the small superscripts are live citations — every number traces back to the page it came from.
+
+Measured across six evaluation rounds on five products (a login-only subdomain, a one-page landing site, a small AI tool, a mature SaaS, and an open-source product):
+
+| | Typical | Best round |
+|---|---|---|
+| Body length | 9,000–15,000 characters | 16,730 |
+| Citations | 2–6 per 1,000 characters | 6.5 |
+| Product screenshots, placed in context | 1–4 | 4 |
+| Sections | 12–17, from a fixed list | — |
+| Time per report | 5–10 minutes | — |
+
+The full report behind that screenshot, and a shorter worked example, are in [`docs/examples/`](docs/examples/).
+
+**What it catches that a summary does not.** From real runs:
+
+- *"Ten years of global marketing experience"* — against a company founded in 2017. The report did the subtraction and marked the claim **overstated**.
+- A case study headlined *"cut CPA by 50%"* whose own body text never mentions CPA. Three more like it in the same case library.
+- A product researched from its login subdomain, where the company behind it is named on no page — but every image is served from a domain belonging to the parent, which had just filed for a Hong Kong IPO.
+- A "competitor table" listing the product's own parent company and two news outlets. The checker rejects that one before it reaches a reader.
 
 ## Who it's for
 
@@ -86,9 +117,9 @@ Four parts, each doing one job:
 
 ```
  skills/product-research/
- ├── product-research-method.md   HOW    — 10-step sequence + branches per product shape
+ ├── product-research-method.md   HOW    — the sequence, plus branches per product shape
  ├── casebook.md                  WHY    — 42 field cases, each with its boundary
- ├── contract.json                ENOUGH — 20 completion requirements, machine-readable
+ ├── contract.json                ENOUGH — 20 evidence requirements + the 17 report sections
  └── (four sub-methods)                    viewpoint · landscape · reviews · recent changes
         │
         ▼

@@ -262,7 +262,7 @@
       "requires": "Last 30 days: releases, pricing changes, funding, incidents, user reaction — each dated",
       "check": {
         "type": "regex",
-        "pattern": "近 ?30 ?天|最近.{0,4}(个月|周)|20\\d\\d-\\d\\d-\\d\\d|[Ll]ast 30 days|[Rr]ecent changes"
+        "pattern": "近 ?30 ?天|近期变化|近期动态|最近.{0,4}(个月|周)|20\\d\\d-\\d\\d-\\d\\d|20\\d\\d ?年 ?\\d{1,2} ?月|[Ll]ast 30 days|[Rr]ecent changes"
       }
     },
     {
